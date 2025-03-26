@@ -1,0 +1,23 @@
+Index: code.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>def print_m_correct(height):\r\n  if height % 2 == 0 or height <= 0:\r\n    print(\"Height must be an odd positive integer.\")\r\n    return\r\n\r\n  width = 2 * height - 1\r\n  mid = height // 2\r\n\r\n  for row in range(height):\r\n    for col in range(width):\r\n      if (col == 0 or  # Left vertical line\r\n          col == width - 1 or # Right vertical line\r\n          (row <= mid and (  # Top V shape\r\n              (row == col and col <= mid) or\r\n              (row + col == 2 * mid and col >= mid)\r\n          ))):\r\n        print(\"*\", end=\"\")\r\n      else:\r\n        print(\" \", end=\"\")\r\n    print()\r\n\r\n# Example usage:\r\nprint_m_correct(7)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/code.py b/code.py
+--- a/code.py	(revision 8856096e67aa48155df064111ce15b42ea7108a8)
++++ b/code.py	(date 1742972233054)
+@@ -8,9 +8,9 @@
+ 
+   for row in range(height):
+     for col in range(width):
+-      if (col == 0 or  # Left vertical line
+-          col == width - 1 or # Right vertical line
+-          (row <= mid and (  # Top V shape
++      if (col == 0 or
++          col == width - 1 or
++          (row <= mid and (
+               (row == col and col <= mid) or
+               (row + col == 2 * mid and col >= mid)
+           ))):
